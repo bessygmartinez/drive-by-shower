@@ -1,0 +1,22 @@
+h4.dosis {
+    font-size: 1.5rem !important;
+    color: #3f4141;
+    margin: 0.52rem 0 0.912rem 0
+}
+
+p.dosis {
+    font-size: 1.3rem;
+}
+
+.pink-row {
+    background-color: #f7d3d5 !important;
+    margin-bottom: 0px;
+}
+
+a.teal-text.text-darken-1:hover {
+    color: #4db6ac !important;
+}
+
+.row-top-0 {
+    margin-top:-20px;
+}
