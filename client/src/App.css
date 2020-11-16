@@ -1,6 +1,7 @@
 body {
   background-color: #f8e6e4;
   color: #3f4141;
+  overflow: visible !important;
 }
 
 .Toastify__toast--success {
