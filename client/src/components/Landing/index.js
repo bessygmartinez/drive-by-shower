@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Cookies from 'js-cookie'
 
 import M from "materialize-css";
 
@@ -25,19 +26,33 @@ class Landing extends Component {
     });
   };
 
+  setCookie = () => {
+    Cookies.set('closeModal', 'true', { expires: 1, path: '/' });
+  }
+
   render() {
-    document.addEventListener("DOMContentLoaded", function () {
+
+    let cookieName = 'closeModal';
+
+    if (Cookies.get(cookieName) === undefined || "") {
+      console.log("closeModal cookie not set")
+
+      document.addEventListener("DOMContentLoaded", function () {
       let Modalelem = document.querySelector("#Covid-19");
       let instance = M.Modal.init(Modalelem);
       instance.open();
     });
+    } else if (Cookies.get(cookieName)) {
+      console.log("closeModal cookie set")
+    }
 
     return (
       <div>
         <Modal
           actions={[
-            <div style={{ float: "right" }}>
-              <Button flat modal="close" node="button" waves="teal">
+            <div style={{ float: "right" }} id="modal-close">
+              <Button flat modal="close" node="button" waves="teal"
+              onClick={this.setCookie}>
               {this.state.spanish === false ? "Agree" : "De Acuerdo"}
               </Button>
             </div>,
@@ -51,7 +66,7 @@ class Landing extends Component {
           fixedFooter={false}
           header={this.state.spanish === false ? "Prevent the Spread of Covid-19" : "Evitar la Propagación del Covid-19"}
           id="Covid-19"
-          open={true}
+          open={false}
           options={{
             dismissible: true,
             endingTop: "15%",
@@ -68,8 +83,8 @@ class Landing extends Component {
         >
           <p className={this.state.spanish === false ? "show-english" : "hide-english"}>
             We are committed to keeping ourselves and our loved ones safe. To help support the
-            health and safety of everyone, we would like to remind you of the following:
-            <ul>
+            health and safety of everyone, we would like to remind you of the following:</p>
+            <ul className={this.state.spanish === false ? "show-english" : "hide-english"}>
               <li>- Wash your hands frequently</li>
               <li>- Cover your cough or sneeze using your elbow</li>
               <li>- Wear a mask!</li>
@@ -87,15 +102,15 @@ class Landing extends Component {
                 December 12th.
               </li>
             </ul>
-          </p>
+
           <p className={this.state.spanish === false ? "show-english" : "hide-english"}>
             Thank you for your continued efforts in helping curb the spread of Covid-19.
           </p>
 
           <p className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
           Estamos comprometidos a nuestros seres queridos y a nosotros mismos. Para mantener
-          la salud y seguridad de todos, nos gustaría recordarle de lo siguiente:
-            <ul>
+          la salud y seguridad de todos, nos gustaría recordarle de lo siguiente:</p>
+            <ul className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
               <li>- Lávese las manos con frecuencia</li>
               <li>- Cúbrase al toser o estornudar con el codo</li>
               <li>- ¡Usar una máscara!</li>
@@ -110,7 +125,7 @@ class Landing extends Component {
                 síntomas de Covid-19, dentro de 14 días posteriores al 12 de Diciembre.
               </li>
             </ul>
-          </p>
+          
           <p className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
           Gracias por sus continuos esfuerzos en frenar la propagación del Covid-19.
           </p>
