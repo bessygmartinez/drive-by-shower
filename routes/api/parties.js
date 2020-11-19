@@ -140,14 +140,22 @@ router.post("/register", (req, res) => {
                               .then((party) => res.json(party))
                               .catch((err) => console.log(err));
 
-                              const htmlEmail = `
-                              <h3>Contact Details</h3>
+                              const timeReserved = `
+                              <h2>Thank you for reserving your time!</h2>
                               <ul>
-                              <li>Name: ${req.body.partyName}</li>
-                              <li>Email: ${req.body.partyEmail}</li>
+                              <li>Party Name: ${req.body.partyName}</li>
+                              <li>Party Size: ${req.body.partySize}</li>
                               </u>
-                              <h3>Message</h3>
-                              <p>You have selected to arrive between ${req.body.partyTime}.</p>
+                              <h3>You have selected to arrive between ${req.body.partyTime}.</h3>
+                              `
+
+                              const soSorry = `
+                              <h2>Thank you for reserving your time!</h2>
+                              <ul>
+                              <li>Party Name: ${req.body.partyName}</li>
+                              <li>Party Size: ${req.body.partySize}</li>
+                              </u>
+                              <h3>So sorry you can't make it! Hopefully we will see you another time!</h3>
                               `
                               
                               let transporter = nodemailer.createTransport({
@@ -179,7 +187,7 @@ router.post("/register", (req, res) => {
                                   replyTo: 'bessygmartinez83@gmail.com',
                                   subject: "🌈Bessy & Andre's Drive-By Baby Shower⛈️ - Time Confirmation",
                                   text: `You have selected to arrive between ${req.body.partyTime}.`,
-                                  html: htmlEmail
+                                  html: req.body.partyTime !== "Can't Make It" ? timeReserved : soSorry
                               }
                               
                               transporter.sendMail(mailOptions, (err, data) => {
