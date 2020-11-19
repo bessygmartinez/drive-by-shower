@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-materialize";
-import SeeYouSoon from "./seeyou.png";
 
 import { Link } from "react-router-dom";
 
