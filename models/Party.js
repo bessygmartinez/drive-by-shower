@@ -14,6 +14,10 @@ const PartiesSchema = new Schema({
     type: String,
     required: true
   },
+  partyEmail: {
+    type: String,
+    required: true
+  },
   partyTime: {
     type: String,
     required: true
