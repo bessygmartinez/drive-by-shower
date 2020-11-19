@@ -14,7 +14,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import "materialize-css";
-import { Row, Col } from "react-materialize";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
