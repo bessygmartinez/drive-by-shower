@@ -2,3 +2,18 @@
     background-color: #f3d3d4;
     margin-top:-20px;
 }
+
+@media only screen and (max-width: 992px) {
+
+.modal-content h4 {
+    font-size: 1.7rem;
+}
+
+.modal-content p {
+    font-size: 0.88rem;
+}
+
+.modal-content ul {
+    font-size: 0.88rem;
+}
+}
