@@ -8,6 +8,7 @@ module.exports = function validateRegisterInput(data) {
     data.partyName = !isEmpty(data.partyName) ? data.partyName : "";
     data.partySize = !isEmpty(data.partySize) ? data.partySize : "";
     data.partyAddress = !isEmpty(data.partyAddress) ? data.partyAddress : "";
+    data.partyEmail = !isEmpty(data.partyEmail) ? data.partyEmail : "";
     data.partyTime = !isEmpty(data.partyTime) ? data.partyTime : "";
 
     //Name check
@@ -31,6 +32,17 @@ module.exports = function validateRegisterInput(data) {
     if (data.partyAddress.includes("@")) {
         errors.partyAddress = "Please enter your mailing address, not your email address";
         errors.partyAddressSpanish = "Ingrese su dirección postal, no su dirección de correo electrónico";
+    }
+
+    //Email check
+    if (Validator.isEmpty(data.partyEmail)) {
+        errors.partyEmail = "Enter your email address";
+        errors.partyEmailSpanish = "Ingrese su correo electrónico";
+    }
+
+    if (!data.partyEmail.includes("@")) {
+        errors.partyEmail = "Enter a valid email address";
+        errors.partyEmailSpanish = "Ingrese una dirección de correo electrónico válida";
     }
 
     //Time check
