@@ -43,7 +43,7 @@ export class CovidModal extends Component {
           ]}
           bottomSheet={false}
           fixedFooter={false}
-          header={this.state.spanish === false ? "Prevent the Spread of Covid-19" : "Evitar la Propagación del Covid-19"}
+          header={this.state.spanish === false ? "Prevent the Spread" : "Prevenir la Propagación"}
           id="Covid-19"
           open={open}
           options={{
