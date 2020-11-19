@@ -57,6 +57,7 @@ class Register extends Component {
         partyName: this.state.party.partyName,
         partySize: this.state.party.partySize,
         partyAddress: this.state.party.partyAddress,
+        partyEmail: this.state.party.partyEmail,
         partyTime: e.target.value,
       },
     });
@@ -78,6 +79,7 @@ class Register extends Component {
       partyName: this.state.party.partyName,
       partySize: this.state.party.partySize,
       partyAddress: this.state.party.partyAddress,
+      partyEmail: this.state.party.partyEmail,
       partyTime: this.state.party.partyTime,
     };
 
@@ -202,7 +204,7 @@ class Register extends Component {
     } else {
       let partySizeArr = [];
       party6.forEach((party) => {
-        partySizeArr.push(party.partySize);
+        partySizeArr.push(parseInt(party.partySize));
         party6Size = partySizeArr.reduce(function (a, b) {
           return a + b;
         }, 0);
@@ -324,6 +326,28 @@ class Register extends Component {
               <div style={{ marginLeft: "0.75rem" }}>
                 <span className="red-text text-accent-2 tiny-text">
                   {this.state.spanish === false ? errors.partyAddress : errors.partyAddressSpanish}</span>
+              </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col s={12}>
+              <TextInput
+                onChange={this.onChange}
+                id="partyEmail"
+                label={
+                  this.state.spanish === false
+                    ? "Email Address"
+                    : "Correo Electrónico"
+                }
+                type="email"
+                validate
+                s={12}
+                className="input-field2"
+              />
+              <div style={{ marginLeft: "0.75rem" }}>
+                <span className="red-text text-accent-2 tiny-text">
+                  {this.state.spanish === false ? errors.partyEmail : errors.partyEmailSpanish}</span>
               </div>
             </Col>
           </Row>
