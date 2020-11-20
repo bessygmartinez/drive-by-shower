@@ -13,7 +13,7 @@ class Nav extends Component {
           alignLinks="right"
           brand={
             <a className="brand-logo" href="/">
-              <img src={RainbowShower} width="200vw" style={{zIndex: -100}} className="d-inline-block responsive-img" alt="Drive-By Baby Shower" />
+              <img src={RainbowShower} width="200vw" className="d-inline-block responsive-img" alt="Drive-By Baby Shower" />
             </a>
           }
           id="mobile-nav"
