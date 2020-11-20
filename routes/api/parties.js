@@ -4,18 +4,28 @@ const partiesController = require("../../controllers/partiesController");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const nodemailer = require("nodemailer");
+const Hogan = require("hogan.js");
+const fs = require("fs");
+
+//Get HTML files for emails
+const confirmationTemplate = fs.readFileSync("./views/confirmationEmail.hjs", "utf-8");
+const sorryTemplate = fs.readFileSync("./views/sorryEmail.hjs", "utf-8");
+
+//Compile template
+const compiledConfTemplate = Hogan.compile(confirmationTemplate);
+const compiledSorryTemplate = Hogan.compile(sorryTemplate);
 
 const oauth2Client = new OAuth2(
-    process.env.GMAIL_CLIENTID, // ClientID
-    process.env.GMAIL_CLIENTSECRET, // Client Secret
-    "https://developers.google.com/oauthplayground" // Redirect URL
+  process.env.GMAIL_CLIENTID, // ClientID
+  process.env.GMAIL_CLIENTSECRET, // Client Secret
+  "https://developers.google.com/oauthplayground" // Redirect URL
 );
 
 oauth2Client.setCredentials({
-    refresh_token: process.env.GMAIL_REFRESHTOKEN
+  refresh_token: process.env.GMAIL_REFRESHTOKEN,
 });
 
-const accessToken = oauth2Client.getAccessToken()
+const accessToken = oauth2Client.getAccessToken();
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -34,8 +44,7 @@ router.post("/register", (req, res) => {
   //Check validation
   if (!isValid) {
     return res.status(400).json(errors);
-  }
-  else {
+  } else {
     Party.find({ partyTime: "11:00am - 12:00pm" })
       .then((parties) => {
         let partySizes = [];
@@ -121,12 +130,10 @@ router.post("/register", (req, res) => {
                             (parseInt(req.body.partySize) + parseInt(total16) > 15 &&
                               req.body.partyTime === "05:15pm - 06:15pm")
                           ) {
-                            return res
-                              .status(400)
-                              .json({
-                                partyTime:
-                                  "Sorry! Time frame is already full. Please choose another.",
-                              });
+                            return res.status(400).json({
+                              partyTime:
+                                "Sorry! Time frame is already full. Please choose another.",
+                            });
                           } else {
                             const newParty = new Party({
                               partyName: req.body.partyName,
@@ -134,78 +141,68 @@ router.post("/register", (req, res) => {
                               partyAddress: req.body.partyAddress,
                               partyEmail: req.body.partyEmail,
                               partyTime: req.body.partyTime,
-                            })
+                            });
                             newParty
                               .save()
-                              .then((party) => res.json(party))
-                              .catch((err) => console.log(err));
-
-                              const timeReserved = `
-                              <h2>Thank you for reserving your time!</h2>
-                              <ul>
-                              <li>Party Name: ${req.body.partyName}</li>
-                              <li>Party Size: ${req.body.partySize}</li>
-                              </u>
-                              <h3>You have selected to arrive between ${req.body.partyTime}.</h3>
-                              `
-
-                              const soSorry = `
-                              <h2>Thank you for reserving your time!</h2>
-                              <ul>
-                              <li>Party Name: ${req.body.partyName}</li>
-                              <li>Party Size: ${req.body.partySize}</li>
-                              </u>
-                              <h3>So sorry you can't make it! Hopefully we will see you another time!</h3>
-                              `
-                              
-                              let transporter = nodemailer.createTransport({
-                                  service: 'Gmail',
+                              .then((party) => {
+                                  let transporter = nodemailer.createTransport({
+                                  service: "Gmail",
                                   tls: {
-                                      rejectUnauthorized: false
+                                    rejectUnauthorized: false,
                                   },
                                   auth: {
-                                      type: 'OAuth2',
-                                      user: 'bessygmartinez83@gmail.com',
-                                      clientId: process.env.GMAIL_CLIENTID,
-                                      clientSecret: process.env.GMAIL_CLIENTSECRET,
-                                      refreshToken: process.env.GMAIL_REFRESHTOKEN,
-                                      accessToken: accessToken
-                                      }
-                              })
-                              
-                              transporter.verify((error, success) => {
+                                    type: "OAuth2",
+                                    user: "bessygmartinez83@gmail.com",
+                                    clientId: process.env.GMAIL_CLIENTID,
+                                    clientSecret: process.env.GMAIL_CLIENTSECRET,
+                                    refreshToken: process.env.GMAIL_REFRESHTOKEN,
+                                    accessToken: accessToken,
+                                  },
+                                });
+
+                                transporter.verify((error, success) => {
                                   if (error) {
-                                      console.log(error);
+                                    console.log(error);
                                   } else {
-                                      console.log("Server is ready to take messages");
+                                    console.log("Server is ready to take messages");
                                   }
-                              });
-                              
-                              let mailOptions = {
-                                  from: 'bessygmartinez83@gmail.com',
-                                  to: req.body.partyEmail,
-                                  replyTo: 'bessygmartinez83@gmail.com',
-                                  subject: "🌈Bessy & Andre's Drive-By Baby Shower⛈️ - Time Confirmation",
-                                  text: `You have selected to arrive between ${req.body.partyTime}.`,
-                                  html: req.body.partyTime !== "Can't Make It" ? timeReserved : soSorry
-                              }
-                              
-                              transporter.sendMail(mailOptions, (err, data) => {
-                                  if (err) {
-                                      console.log("error")
-                                  res.json({
-                                      msg: "fail",
-                                      err: err
+                                });
+
+                                let mailOptions = {
+                                  from: "bessygmartinez83@gmail.com",
+                                  to: party.partyEmail,
+                                  replyTo: "bessygmartinez83@gmail.com",
+                                  subject:
+                                    "🌈Bessy & Andre's Drive-By Baby Shower⛈️",
+                                  text: `You have selected to arrive between ${party.partyTime}.`,
+                                  html: party.partyTime !== "Can't Make It" ? compiledConfTemplate.render({
+                                    partyName: party.partyName,
+                                    partySize: party.partySize,
+                                    partyAddress: party.partyAddress,
+                                    partyTime: party.partyTime
+                                  }) :
+                                  compiledSorryTemplate.render({
+                                    partyName: party.partyName,
                                   })
+                                };
+
+                                transporter.sendMail(mailOptions, (err, data) => {
+                                  if (err) {
+                                    console.log(err);
+                                    return res.status(400).json({
+                                      msg: "fail",
+                                      err: err,
+                                    });
                                   } else {
-                                      console.log("successful")
-                                      res.json({
-                                          msg: "success"
-                                      })
+                                    console.log("successful");
+                                    return res.status(200).json({
+                                      msg: "success",
+                                    });
                                   }
+                                });
+                                transporter.close();
                               })
-                              
-                              transporter.close();
+                              .catch((err) => console.log(err));
                           }
                         })
                       )
