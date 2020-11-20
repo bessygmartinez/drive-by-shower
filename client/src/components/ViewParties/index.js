@@ -60,22 +60,23 @@ class ViewParties extends Component {
 
     return (
       <div>
+        <Row></Row>
         <Row className="row-top-0">
           <Col s={12} className="center-align">
-            <Col s={1} l={2} className="left-align">
-              <Link to="/" className="teal-text text-darken-1">
-                <i className="material-icons" style={{ fontSize: "130%" }}>
-                  keyboard_backspace
-                </i>{" "}
-                back
-              </Link>
+            <Col s={6} l={6} className="left-align">
+            <Link to="/register">
+              <Button small flat node="button" className="teal white-text">
+              {this.state.spanish === false ? "Reserve Time" : "Reserva  Tiempo"}
+              </Button>
+            </Link>
             </Col>
 
-            <Col s={11} l={10} className="right-align">
-              <Button small flat node="button" onClick={this.handleSpanishToggle} className="white">
+            <Col s={6} l={6} className="right-align">
+              <Button small flat node="button" onClick={this.handleSpanishToggle} className="grey lighten-4">
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
             </Col>
+            <Row></Row>
 
             <Col s={12} className="center-align white">
               <p
@@ -114,7 +115,7 @@ class ViewParties extends Component {
             </Row>
             <Table>
               <thead className="grey lighten-5">
-                <tr>
+                <tr key="11:00am - 12:00pm">
                   <th data-field="Party Name">Party Name</th>
                   <th data-field="Party Size">Party Size</th>
                 </tr>
@@ -122,7 +123,7 @@ class ViewParties extends Component {
               <tbody className="grey lighten-5">
                 {party1.map((party) => {
                   return (
-                    <tr>
+                    <tr  key="party info">
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -136,7 +137,7 @@ class ViewParties extends Component {
             </Row>
             <Table>
               <thead className="grey lighten-5">
-                <tr>
+                <tr key="12:15pm - 01:15pm">
                   <th data-field="Party Name">Party Name</th>
                   <th data-field="Party Size">Party Size</th>
                 </tr>
@@ -144,7 +145,7 @@ class ViewParties extends Component {
               <tbody className="grey lighten-5">
                 {party2.map((party) => {
                   return (
-                    <tr>
+                    <tr  key="party info">
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -158,7 +159,7 @@ class ViewParties extends Component {
             </Row>
             <Table>
               <thead className="grey lighten-5">
-                <tr>
+                <tr key="01:30pm - 02:30pm">
                   <th data-field="Party Name">Party Name</th>
                   <th data-field="Party Size">Party Size</th>
                 </tr>
@@ -166,7 +167,7 @@ class ViewParties extends Component {
               <tbody className="grey lighten-5">
                 {party3.map((party) => {
                   return (
-                    <tr>
+                    <tr  key="party info">
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -180,7 +181,7 @@ class ViewParties extends Component {
             </Row>
             <Table>
               <thead className="grey lighten-5">
-                <tr>
+                <tr key="02:45pm - 03:45pm">
                   <th data-field="Party Name">Party Name</th>
                   <th data-field="Party Size">Party Size</th>
                 </tr>
@@ -188,7 +189,7 @@ class ViewParties extends Component {
               <tbody className="grey lighten-5">
                 {party4.map((party) => {
                   return (
-                    <tr>
+                    <tr key="party info">
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -202,7 +203,7 @@ class ViewParties extends Component {
             </Row>
             <Table>
               <thead className="grey lighten-5">
-                <tr>
+                <tr key="04:00pm - 05:00pm">
                   <th data-field="Party Name">Party Name</th>
                   <th data-field="Party Size">Party Size</th>
                 </tr>
@@ -210,7 +211,7 @@ class ViewParties extends Component {
               <tbody className="grey lighten-5">
                 {party5.map((party) => {
                   return (
-                    <tr>
+                    <tr key="party info">
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -224,7 +225,7 @@ class ViewParties extends Component {
             </Row>
             <Table>
               <thead className="grey lighten-5">
-                <tr>
+                <tr key="05:15pm - 06:15pm">
                   <th data-field="Party Name">Party Name</th>
                   <th data-field="Party Size">Party Size</th>
                 </tr>
@@ -232,7 +233,7 @@ class ViewParties extends Component {
               <tbody className="grey lighten-5">
                 {party6.map((party) => {
                   return (
-                    <tr>
+                    <tr key="party info">
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
