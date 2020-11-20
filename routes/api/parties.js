@@ -131,7 +131,7 @@ router.post("/register", (req, res) => {
                           ) {
                             return res.status(400).json({
                               partyTime:
-                                "Sorry! Your party size exceeds the available open spots. Please choose another.",
+                                "Your party size exceeds the availability for that hour. Please choose another time or lower your party size.",
                             });
                           } else {
                             const newParty = new Party({
