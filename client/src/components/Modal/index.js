@@ -30,13 +30,13 @@ export class CovidModal extends Component {
                 <Modal
           actions={[
             <div style={{ float: "right" }} id="modal-close">
-              <Button flat modal="close" node="button" waves="teal"
+              <Button modal="close" node="button" waves="teal"
               onClick={this.setCookie}>
               {this.state.spanish === false ? "Agree" : "De Acuerdo"}
               </Button>
             </div>,
             <div style={{ float: "left" }}>
-              <Button flat node="button" onClick={this.handleToggle}>
+              <Button node="button" onClick={this.handleToggle}>
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
             </div>,
@@ -64,7 +64,7 @@ export class CovidModal extends Component {
             We are committed to keeping ourselves and our loved ones safe. To help support the
             health and safety of everyone, we would like to remind you of the following:</p>
 
-            <p>
+            <br/>
             <ul className={this.state.spanish === false ? "show-english" : "hide-english"}>
               <li>- Wash your hands frequently</li>
               <li>- Cover your cough or sneeze using your elbow</li>
@@ -83,7 +83,7 @@ export class CovidModal extends Component {
                 December 12th.
               </li>
             </ul>
-            </p>
+            <br/>
 
           <p className={this.state.spanish === false ? "show-english" : "hide-english"}>
             Thank you for your continued efforts in helping curb the spread of Covid-19.
@@ -93,7 +93,7 @@ export class CovidModal extends Component {
           Estamos comprometidos a nuestros seres queridos y a nosotros mismos. Para mantener
           la salud y seguridad de todos, nos gustaría recordarle de lo siguiente:</p>
 
-          <p>
+          <br/>
             <ul className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
               <li>- Lávese las manos con frecuencia</li>
               <li>- Cúbrase al toser o estornudar con el codo</li>
@@ -109,7 +109,7 @@ export class CovidModal extends Component {
                 síntomas de Covid-19, dentro de 14 días posteriores al 12 de Diciembre.
               </li>
             </ul>
-            </p>
+            <br/>
           
           <p className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
           Gracias por sus continuos esfuerzos en frenar la propagación del Covid-19.
