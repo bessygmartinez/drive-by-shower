@@ -76,6 +76,167 @@ class Register extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
+    let parties = this.state.reservedParties;
+
+    if (
+      this.state.party.partyName &&
+      this.state.party.partySize &&
+      this.state.party.partyAddress &&
+      this.state.party.partyEmail &&
+      this.state.party.partyTime !== undefined
+    ) {
+      let party1 = parties.filter((party) => {
+        return party.partyTime === "11:00am - 12:00pm";
+      });
+
+      let party2 = parties.filter((party) => {
+        return party.partyTime === "12:15pm - 01:15pm";
+      });
+
+      let party3 = parties.filter((party) => {
+        return party.partyTime === "01:30pm - 02:30pm";
+      });
+
+      let party4 = parties.filter((party) => {
+        return party.partyTime === "02:45pm - 03:45pm";
+      });
+
+      let party5 = parties.filter((party) => {
+        return party.partyTime === "04:00pm - 05:00pm";
+      });
+
+      let party6 = parties.filter((party) => {
+        return party.partyTime === "05:15pm - 06:15pm";
+      });
+
+      let party1Size;
+      let party2Size;
+      let party3Size;
+      let party4Size;
+      let party5Size;
+      let party6Size;
+
+      if (this.state.party.partyTime === "11:00am - 12:00pm") {
+        if (party1.length < 1) {
+          party1Size = 0;
+        } else {
+          let partySizeArr = [];
+          party1.forEach((party) => {
+            partySizeArr.push(parseInt(party.partySize));
+            party1Size = partySizeArr.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+          });
+        }
+        if (parseInt(this.state.party.partySize) + party1Size <= 15) {
+          this.setState({
+            ...this.state,
+            errors: {},
+            preloader: true,
+          });
+        }
+      } else if (this.state.party.partyTime === "12:15pm - 01:15pm") {
+        if (party2.length < 1) {
+          party2Size = 0;
+        } else {
+          let partySizeArr = [];
+          party2.forEach((party) => {
+            partySizeArr.push(parseInt(party.partySize));
+            party2Size = partySizeArr.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+          });
+        }
+
+        if (parseInt(this.state.party.partySize) + party2Size <= 15) {
+          this.setState({
+            ...this.state,
+            errors: {},
+            preloader: true,
+          });
+        }
+      } else if (this.state.party.partyTime === "01:30pm - 02:30pm") {
+        if (party3.length < 1) {
+          party3Size = 0;
+        } else {
+          let partySizeArr = [];
+          party3.forEach((party) => {
+            partySizeArr.push(parseInt(party.partySize));
+            party3Size = partySizeArr.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+          });
+        }
+
+        if (parseInt(this.state.party.partySize) + party3Size <= 15) {
+          this.setState({
+            ...this.state,
+            errors: {},
+            preloader: true,
+          });
+        }
+      } else if (this.state.party.partyTime === "02:45pm - 03:45pm") {
+        if (party4.length < 1) {
+          party4Size = 0;
+        } else {
+          let partySizeArr = [];
+          party4.forEach((party) => {
+            partySizeArr.push(parseInt(party.partySize));
+            party4Size = partySizeArr.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+          });
+        }
+
+        if (parseInt(this.state.party.partySize) + party4Size <= 15) {
+          this.setState({
+            ...this.state,
+            errors: {},
+            preloader: true,
+          });
+        }
+      } else if (this.state.party.partyTime === "04:00pm - 05:00pm") {
+        if (party5.length < 1) {
+          party5Size = 0;
+        } else {
+          let partySizeArr = [];
+          party5.forEach((party) => {
+            partySizeArr.push(parseInt(party.partySize));
+            party5Size = partySizeArr.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+          });
+        }
+
+        if (parseInt(this.state.party.partySize) + party5Size <= 15) {
+          this.setState({
+            ...this.state,
+            errors: {},
+            preloader: true,
+          });
+        }
+      } else if (this.state.party.partyTime === "05:15pm - 06:15pm") {
+        if (party6.length < 1) {
+          party6Size = 0;
+        } else {
+          let partySizeArr = [];
+          party6.forEach((party) => {
+            partySizeArr.push(parseInt(party.partySize));
+            party6Size = partySizeArr.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+          });
+        }
+        if (parseInt(this.state.party.partySize) + party6Size <= 15) {
+          this.setState({
+            ...this.state,
+            errors: {},
+            preloader: true,
+          });
+        }
+      }
+    }
+
     const newParty = {
       partyName: this.state.party.partyName,
       partySize: this.state.party.partySize,
@@ -84,14 +245,7 @@ class Register extends Component {
       partyTime: this.state.party.partyTime,
     };
 
-    if (newParty.partyName && newParty.partySize && newParty.partyAddress && newParty.partyEmail && newParty.partyTime !== undefined) {
-      this.setState({
-        ...this.state,
-        preloader: true,
-      })
-    }
-
-    this.props.registerParty(newParty, this.props.history)
+    this.props.registerParty(newParty, this.props.history);
 
     console.log(newParty);
   };
@@ -227,15 +381,21 @@ class Register extends Component {
         <Row className="row-top-0">
           <Col s={12} className="center-align">
             <Col s={6} l={6} className="left-align">
-            <Link to="/viewparties">
-              <Button small flat node="button" className="teal white-text">
-              {this.state.spanish === false ? "View Schedule" : "Ver Horario"}
-              </Button>
-            </Link>
+              <Link to="/viewparties">
+                <Button small flat node="button" className="teal white-text">
+                  {this.state.spanish === false ? "View Schedule" : "Ver Horario"}
+                </Button>
+              </Link>
             </Col>
 
             <Col s={6} l={6} className="right-align">
-              <Button small flat node="button" onClick={this.handleSpanishToggle} className="grey lighten-4">
+              <Button
+                small
+                flat
+                node="button"
+                onClick={this.handleSpanishToggle}
+                className="grey lighten-4"
+              >
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
             </Col>
@@ -573,12 +733,7 @@ class Register extends Component {
           <Row className="center-align">
             <Col s={4} push="s7">
               {this.state.preloader !== true ? (
-                <Button
-                  large
-                  node="button"
-                  type="submit"
-                  onSubmit={this.onSubmit}
-                >
+                <Button large node="button" type="submit" onSubmit={this.onSubmit}>
                   {this.state.spanish === false ? "Submit" : "Enviar"}
                   <Icon right>send</Icon>
                 </Button>
