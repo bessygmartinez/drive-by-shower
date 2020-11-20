@@ -7,7 +7,7 @@ import Moment from "react-moment";
 import partiesAPI from "../../utils/partiesAPI";
 
 import "materialize-css";
-import { Row, Col, TextInput, Button, Icon } from "react-materialize";
+import { Row, Col, TextInput, Button, Icon, Preloader } from "react-materialize";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./Register.css";
@@ -21,6 +21,7 @@ class Register extends Component {
       errors: {},
       reservedParties: [],
       spanish: false,
+      preloader: false,
     };
   }
 
@@ -83,7 +84,14 @@ class Register extends Component {
       partyTime: this.state.party.partyTime,
     };
 
-    this.props.registerParty(newParty, this.props.history);
+    if (newParty.partyName && newParty.partySize && newParty.partyAddress && newParty.partyEmail && newParty.partyTime !== undefined) {
+      this.setState({
+        ...this.state,
+        preloader: true,
+      })
+    }
+
+    this.props.registerParty(newParty, this.props.history)
 
     console.log(newParty);
   };
@@ -296,7 +304,8 @@ class Register extends Component {
               />
               <div style={{ marginLeft: "0.75rem", marginTop: "-0.75rem" }}>
                 <span className="red-text text-accent-2 tiny-text">
-                  {this.state.spanish === false ? errors.partySize : errors.partySizeSpanish}</span>
+                  {this.state.spanish === false ? errors.partySize : errors.partySizeSpanish}
+                </span>
               </div>
             </Col>
           </Row>
@@ -325,7 +334,8 @@ class Register extends Component {
               </div>
               <div style={{ marginLeft: "0.75rem" }}>
                 <span className="red-text text-accent-2 tiny-text">
-                  {this.state.spanish === false ? errors.partyAddress : errors.partyAddressSpanish}</span>
+                  {this.state.spanish === false ? errors.partyAddress : errors.partyAddressSpanish}
+                </span>
               </div>
             </Col>
           </Row>
@@ -335,11 +345,7 @@ class Register extends Component {
               <TextInput
                 onChange={this.onChange}
                 id="partyEmail"
-                label={
-                  this.state.spanish === false
-                    ? "Email Address"
-                    : "Correo Electrónico"
-                }
+                label={this.state.spanish === false ? "Email Address" : "Correo Electrónico"}
                 type="email"
                 validate
                 s={12}
@@ -347,7 +353,8 @@ class Register extends Component {
               />
               <div style={{ marginLeft: "0.75rem" }}>
                 <span className="red-text text-accent-2 tiny-text">
-                  {this.state.spanish === false ? errors.partyEmail : errors.partyEmailSpanish}</span>
+                  {this.state.spanish === false ? errors.partyEmail : errors.partyEmailSpanish}
+                </span>
               </div>
             </Col>
           </Row>
@@ -356,7 +363,8 @@ class Register extends Component {
             <br />
             <div style={{ marginLeft: "0.75rem", marginBottom: "0.75rem" }}>
               <span className="red-text text-accent-2 tiny-text">
-                {this.state.spanish === false ? errors.partyTime : errors.partyTimeSpanish}</span>
+                {this.state.spanish === false ? errors.partyTime : errors.partyTimeSpanish}
+              </span>
             </div>
 
             <Col s={6} l={4} className="offset-l2">
@@ -554,12 +562,21 @@ class Register extends Component {
             </Col>
           </Row>
 
-          <Row className="right-align">
-            <Col s={12}>
-              <Button large node="button" type="submit" onSubmit={this.onSubmit}>
-                {this.state.spanish === false ? "Submit" : "Enviar"}
-                <Icon right>send</Icon>
-              </Button>
+          <Row className="center-align">
+            <Col s={4} push="s7">
+              {this.state.preloader !== true ? (
+                <Button
+                  large
+                  node="button"
+                  type="submit"
+                  onSubmit={this.onSubmit}
+                >
+                  {this.state.spanish === false ? "Submit" : "Enviar"}
+                  <Icon right>send</Icon>
+                </Button>
+              ) : (
+                <Preloader active color="red" flashing={false} size="small" />
+              )}
             </Col>
           </Row>
           <br />
