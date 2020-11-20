@@ -326,10 +326,10 @@ class Register extends Component {
                 className="input-field2"
               />
               <div style={{ marginLeft: "0.75rem" }}>
-                <span className="red-text text-lighten-2 tiny-text">
+                <span className="grey-text text-lighten-1 tiny-text">
                   {this.state.spanish === false
-                    ? "Street, City, State, Zip"
-                    : "Calle, Ciudad, Estado, Código Postal"}
+                    ? "Street, City, State Zip"
+                    : "Calle, Ciudad, Estado Código Postal"}
                 </span>
               </div>
               <div style={{ marginLeft: "0.75rem" }}>
