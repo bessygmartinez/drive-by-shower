@@ -65,7 +65,7 @@ class Landing extends Component {
             <Col s={12} className="center-align">
 
           <Col s={12} l={12} className="right-align">
-            <Button small flat node="button" onClick={this.handleToggle} className="white">
+            <Button small flat className="white-text teal" node="button" onClick={this.handleToggle}>
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
             </Col>
