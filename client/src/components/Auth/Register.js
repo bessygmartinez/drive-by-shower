@@ -223,22 +223,23 @@ class Register extends Component {
 
     return (
       <div>
+        <Row></Row>
         <Row className="row-top-0">
           <Col s={12} className="center-align">
-            <Col s={1} l={2} className="left-align">
-              <Link to="/" className="teal-text text-darken-1">
-                <i className="material-icons" style={{ fontSize: "130%" }}>
-                  keyboard_backspace
-                </i>{" "}
-                back
-              </Link>
+            <Col s={6} l={6} className="left-align">
+            <Link to="/viewparties">
+              <Button small flat node="button" className="teal white-text">
+              {this.state.spanish === false ? "View Schedule" : "Ver Horario"}
+              </Button>
+            </Link>
             </Col>
 
-            <Col s={11} l={10} className="right-align">
-              <Button small flat node="button" onClick={this.handleSpanishToggle} className="white">
+            <Col s={6} l={6} className="right-align">
+              <Button small flat node="button" onClick={this.handleSpanishToggle} className="grey lighten-4">
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
             </Col>
+            <Row></Row>
 
             <Col s={12} className="center-align white">
               <p
