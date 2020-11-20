@@ -107,6 +107,7 @@ class Landing extends Component {
               </Button>
             </Link>
           </Col>
+          <Row></Row>
         </Row>
       </div>
     );
