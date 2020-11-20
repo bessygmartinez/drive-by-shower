@@ -63,6 +63,8 @@ export class CovidModal extends Component {
           <p className={this.state.spanish === false ? "show-english" : "hide-english"}>
             We are committed to keeping ourselves and our loved ones safe. To help support the
             health and safety of everyone, we would like to remind you of the following:</p>
+
+            <p>
             <ul className={this.state.spanish === false ? "show-english" : "hide-english"}>
               <li>- Wash your hands frequently</li>
               <li>- Cover your cough or sneeze using your elbow</li>
@@ -81,6 +83,7 @@ export class CovidModal extends Component {
                 December 12th.
               </li>
             </ul>
+            </p>
 
           <p className={this.state.spanish === false ? "show-english" : "hide-english"}>
             Thank you for your continued efforts in helping curb the spread of Covid-19.
@@ -89,6 +92,8 @@ export class CovidModal extends Component {
           <p className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
           Estamos comprometidos a nuestros seres queridos y a nosotros mismos. Para mantener
           la salud y seguridad de todos, nos gustaría recordarle de lo siguiente:</p>
+
+          <p>
             <ul className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
               <li>- Lávese las manos con frecuencia</li>
               <li>- Cúbrase al toser o estornudar con el codo</li>
@@ -104,6 +109,7 @@ export class CovidModal extends Component {
                 síntomas de Covid-19, dentro de 14 días posteriores al 12 de Diciembre.
               </li>
             </ul>
+            </p>
           
           <p className={this.state.spanish === true ? "show-spanish" : "hide-spanish"}>
           Gracias por sus continuos esfuerzos en frenar la propagación del Covid-19.
