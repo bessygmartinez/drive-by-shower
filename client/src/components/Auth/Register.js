@@ -353,6 +353,13 @@ class Register extends Component {
                 className="input-field2"
               />
               <div style={{ marginLeft: "0.75rem" }}>
+                <span className="grey-text text-lighten-1 tiny-text">
+                  {this.state.spanish === false
+                    ? "Confirmation will be sent to this email"
+                    : "Confirmación sera enviada a este correo"}
+                </span>
+              </div>
+              <div style={{ marginLeft: "0.75rem" }}>
                 <span className="red-text text-accent-2 tiny-text">
                   {this.state.spanish === false ? errors.partyEmail : errors.partyEmailSpanish}
                 </span>
