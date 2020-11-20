@@ -26,6 +26,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^65.0.0",
+    "hogan": "^1.0.2",
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "js-cookie": "^2.2.1",
