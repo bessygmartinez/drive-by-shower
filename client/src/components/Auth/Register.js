@@ -394,7 +394,7 @@ class Register extends Component {
                 flat
                 node="button"
                 onClick={this.handleSpanishToggle}
-                className="grey lighten-4"
+                className="teal white-text"
               >
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
