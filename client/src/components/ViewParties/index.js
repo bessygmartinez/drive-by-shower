@@ -72,7 +72,7 @@ class ViewParties extends Component {
             </Col>
 
             <Col s={6} l={6} className="right-align">
-              <Button small flat node="button" onClick={this.handleSpanishToggle} className="grey lighten-4">
+              <Button small flat node="button" onClick={this.handleSpanishToggle} className="teal white-text">
                 {this.state.spanish === false ? "Español" : "English"}
               </Button>
             </Col>
@@ -116,14 +116,14 @@ class ViewParties extends Component {
             <Table>
               <thead className="grey lighten-5">
                 <tr key="11:00am - 12:00pm">
-                  <th data-field="Party Name">Party Name</th>
-                  <th data-field="Party Size">Party Size</th>
+                  <th data-field="Party Name">{this.state.spanish === false ? "Party Name" : "Nombre del Grupo"}</th>
+                  <th data-field="Party Size">{this.state.spanish === false ? "Party Size" : "Tamaño del Grupo"}</th>
                 </tr>
               </thead>
               <tbody className="grey lighten-5">
                 {party1.map((party) => {
                   return (
-                    <tr  key="party info">
+                    <tr key={party._id}>
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -138,14 +138,14 @@ class ViewParties extends Component {
             <Table>
               <thead className="grey lighten-5">
                 <tr key="12:15pm - 01:15pm">
-                  <th data-field="Party Name">Party Name</th>
-                  <th data-field="Party Size">Party Size</th>
+                <th data-field="Party Name">{this.state.spanish === false ? "Party Name" : "Nombre del Grupo"}</th>
+                <th data-field="Party Size">{this.state.spanish === false ? "Party Size" : "Tamaño del Grupo"}</th>
                 </tr>
               </thead>
               <tbody className="grey lighten-5">
                 {party2.map((party) => {
                   return (
-                    <tr  key="party info">
+                    <tr  key={party._id}>
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -160,14 +160,14 @@ class ViewParties extends Component {
             <Table>
               <thead className="grey lighten-5">
                 <tr key="01:30pm - 02:30pm">
-                  <th data-field="Party Name">Party Name</th>
-                  <th data-field="Party Size">Party Size</th>
+                <th data-field="Party Name">{this.state.spanish === false ? "Party Name" : "Nombre del Grupo"}</th>
+                <th data-field="Party Size">{this.state.spanish === false ? "Party Size" : "Tamaño del Grupo"}</th>
                 </tr>
               </thead>
               <tbody className="grey lighten-5">
                 {party3.map((party) => {
                   return (
-                    <tr  key="party info">
+                    <tr  key={party._id}>
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -182,14 +182,14 @@ class ViewParties extends Component {
             <Table>
               <thead className="grey lighten-5">
                 <tr key="02:45pm - 03:45pm">
-                  <th data-field="Party Name">Party Name</th>
-                  <th data-field="Party Size">Party Size</th>
+                <th data-field="Party Name">{this.state.spanish === false ? "Party Name" : "Nombre del Grupo"}</th>
+                <th data-field="Party Size">{this.state.spanish === false ? "Party Size" : "Tamaño del Grupo"}</th>
                 </tr>
               </thead>
               <tbody className="grey lighten-5">
                 {party4.map((party) => {
                   return (
-                    <tr key="party info">
+                    <tr key={party._id}>
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -204,14 +204,14 @@ class ViewParties extends Component {
             <Table>
               <thead className="grey lighten-5">
                 <tr key="04:00pm - 05:00pm">
-                  <th data-field="Party Name">Party Name</th>
-                  <th data-field="Party Size">Party Size</th>
+                <th data-field="Party Name">{this.state.spanish === false ? "Party Name" : "Nombre del Grupo"}</th>
+                <th data-field="Party Size">{this.state.spanish === false ? "Party Size" : "Tamaño del Grupo"}</th>
                 </tr>
               </thead>
               <tbody className="grey lighten-5">
                 {party5.map((party) => {
                   return (
-                    <tr key="party info">
+                    <tr key={party._id}>
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
@@ -226,14 +226,14 @@ class ViewParties extends Component {
             <Table>
               <thead className="grey lighten-5">
                 <tr key="05:15pm - 06:15pm">
-                  <th data-field="Party Name">Party Name</th>
-                  <th data-field="Party Size">Party Size</th>
+                <th data-field="Party Name">{this.state.spanish === false ? "Party Name" : "Nombre del Grupo"}</th>
+                <th data-field="Party Size">{this.state.spanish === false ? "Party Size" : "Tamaño del Grupo"}</th>
                 </tr>
               </thead>
               <tbody className="grey lighten-5">
                 {party6.map((party) => {
                   return (
-                    <tr key="party info">
+                    <tr key={party._id}>
                       <td>{party.partyName}</td>
                       <td>{party.partySize}</td>
                     </tr>
