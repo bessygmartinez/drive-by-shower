@@ -115,7 +115,6 @@ router.post("/register", (req, res) => {
                             return a + b;
                           }, 0);
 
-                          console.log(parseInt(req.body.partySize) + parseInt(total11));
                           if (
                             (parseInt(req.body.partySize) + parseInt(total11) > 15 &&
                               req.body.partyTime === "11:00am - 12:00pm") ||
@@ -132,7 +131,7 @@ router.post("/register", (req, res) => {
                           ) {
                             return res.status(400).json({
                               partyTime:
-                                "Sorry! Time frame is already full. Please choose another.",
+                                "Sorry! Your party size exceeds the available open spots. Please choose another.",
                             });
                           } else {
                             const newParty = new Party({
