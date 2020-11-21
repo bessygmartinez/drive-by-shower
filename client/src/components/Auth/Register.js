@@ -506,7 +506,7 @@ class Register extends Component {
               <TextInput
                 onChange={this.onChange}
                 id="partyEmail"
-                label={this.state.spanish === false ? "Email Address" : "Correo Electrónico"}
+                label={this.state.spanish === false ? "Email Address (make sure it's correct)" : "Correo Electrónico (asegúre que esta correcto)"}
                 type="email"
                 validate
                 s={12}
