@@ -50,7 +50,7 @@ p.dosis {
 }
 
 .show-english {
-  display: inline;
+  display: block;
 }
 
 .hide-english {
@@ -58,11 +58,15 @@ p.dosis {
 }
 
 .show-spanish {
-  display: inline;
+  display: block;
 }
 
 .hide-spanish {
   display: none;
+}
+
+.tab {
+  padding-left: 0.3em
 }
 
 @media only screen and (max-width: 992px) {
