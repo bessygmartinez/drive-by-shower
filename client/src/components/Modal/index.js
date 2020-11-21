@@ -66,28 +66,26 @@ export class CovidModal extends Component {
 
           <ul className={this.state.spanish === false ? "show-english" : "hide-english"} style={{textAlign: "justify"}}>
             <li className="tab">
-              • <span style={{ paddingLeft: "0.5em" }}>Wash your hands frequently.</span>
+              •<span style={{ paddingLeft: "0.8em" }}>Wash your hands frequently.</span>
             </li>
             <li className="tab">
-              •{" "}
-              <span style={{ paddingLeft: "0.5em" }}>
-                Cover your cough or sneeze using your elbow.
+              •<span style={{ paddingLeft: "0.8em" }}>Cover your cough or sneeze using your elbow.
               </span>
             </li>
             <li className="tab">
-              • <span style={{ paddingLeft: "0.5em" }}>Wear a mask!</span>
+              •<span style={{ paddingLeft: "0.8em" }}>Wear a mask!</span>
             </li>
             <li className="tab">
-              • <span style={{ paddingLeft: "0.5em" }}>Avoid close contact with others, such as shaking hands, touching, hugging, or
+              •<span style={{ paddingLeft: "0.8em" }}>Avoid close contact with others, such as shaking hands, touching, hugging, or
                 kissing.</span>
             </li>
             <li className="tab">
-                • <span style={{ paddingLeft: "0.5em" }}>Please do not come if you experience fever, cough, or shortness of breath within
+                •<span style={{ paddingLeft: "0.8em" }}>Please do not come if you experience fever, cough, or shortness of breath within
                 14 days of December 12th.
               </span>
             </li>
             <li className="tab">
-                • <span style={{ paddingLeft: "0.5em" }}>Please do not come if you have had close contact with anyone infected with
+                •<span style={{ paddingLeft: "0.8em" }}>Please do not come if you have had close contact with anyone infected with
                 Covid-19, including individuals exhibiting Covid-19 symptoms, within 14 days of
                 December 12th.
               </span>
@@ -105,35 +103,27 @@ export class CovidModal extends Component {
 
           <ul className={this.state.spanish === true ? "show-spanish" : "hide-spanish"} style={{textAlign: "justify"}}>
             <li className="tab">
-              • <span style={{ paddingLeft: "0.5em" }}>Lávese las manos con frecuencia.</span>
+              •<span style={{ paddingLeft: "0.8em" }}>Lávese las manos con frecuencia.</span>
             </li>
             <li className="tab">
-              •{" "}
-              <span style={{ paddingLeft: "0.5em" }}>
-                Cúbrase al toser o estornudar con el codo.
+              •<span style={{ paddingLeft: "0.8em" }}>Cúbrase al toser o estornudar con el codo.
               </span>
             </li>
             <li className="tab">
-              • <span style={{ paddingLeft: "0.5em" }}>¡Usar una máscara!</span>
+              •<span style={{ paddingLeft: "0.8em" }}>¡Usar una máscara!</span>
             </li>
             <li className="tab">
-              •{" "}
-              <span style={{ paddingLeft: "0.5em" }}>
-                Evite el contacto cercano con otras personas, como dar la mano, tocar, abrazar o
+              •<span style={{ paddingLeft: "0.8em" }}>Evite el contacto cercano con otras personas, como dar la mano, tocar, abrazar o
                 besar.
               </span>
             </li>
             <li className="tab">
-              •{" "}
-              <span style={{ paddingLeft: "0.5em" }}>
-                Por favor no venga si tiene fiebre, tos o dificultades respirando dentro de 14 días
+              •<span style={{ paddingLeft: "0.8em" }}>Por favor no venga si tiene fiebre, tos o dificultades respirando dentro de 14 días
                 posteriores al 12 de Diciembre.
               </span>
             </li>
             <li className="tab">
-              •{" "}
-              <span style={{ paddingLeft: "0.5em" }}>
-                Por favor no venga si ha tenido contacto cercano con alguien infectado con Covid-19,
+              •<span style={{ paddingLeft: "0.8em" }}>Por favor no venga si ha tenido contacto cercano con alguien infectado con Covid-19,
                 incluidas personas que presenten síntomas de Covid-19, dentro de 14 días posteriores
                 al 12 de Diciembre.
               </span>
