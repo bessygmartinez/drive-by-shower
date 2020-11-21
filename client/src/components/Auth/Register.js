@@ -235,6 +235,13 @@ class Register extends Component {
           });
         }
       }
+      else if (this.state.party.partyTime === "Can't Make It") {
+        this.setState({
+          ...this.state,
+          errors: {},
+          preloader: true,
+        });
+      }
     }
 
     const newParty = {
