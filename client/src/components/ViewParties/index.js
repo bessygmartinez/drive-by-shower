@@ -88,7 +88,7 @@ class ViewParties extends Component {
                 <br />
                 Below are the parties that have already reserved their time.
                 <br />
-                Each time frame is limited to 15 people per hour.
+                Each time frame is limited to 10 people per hour.
               </p>
 
               <p
@@ -102,7 +102,7 @@ class ViewParties extends Component {
                 <br />
                 A continuación se muestran los grupos que ya han reservado su tiempo.
                 <br />
-                Cada período de tiempo está limitado a 15 personas por hora.
+                Cada período de tiempo está limitado a 10 personas por hora.
               </p>
             </Col>
           </Col>

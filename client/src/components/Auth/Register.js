@@ -128,7 +128,7 @@ class Register extends Component {
             }, 0);
           });
         }
-        if (parseInt(this.state.party.partySize) + party1Size <= 15) {
+        if (parseInt(this.state.party.partySize) + party1Size <= 10) {
           this.setState({
             ...this.state,
             errors: {},
@@ -148,7 +148,7 @@ class Register extends Component {
           });
         }
 
-        if (parseInt(this.state.party.partySize) + party2Size <= 15) {
+        if (parseInt(this.state.party.partySize) + party2Size <= 10) {
           this.setState({
             ...this.state,
             errors: {},
@@ -168,7 +168,7 @@ class Register extends Component {
           });
         }
 
-        if (parseInt(this.state.party.partySize) + party3Size <= 15) {
+        if (parseInt(this.state.party.partySize) + party3Size <= 10) {
           this.setState({
             ...this.state,
             errors: {},
@@ -188,7 +188,7 @@ class Register extends Component {
           });
         }
 
-        if (parseInt(this.state.party.partySize) + party4Size <= 15) {
+        if (parseInt(this.state.party.partySize) + party4Size <= 10) {
           this.setState({
             ...this.state,
             errors: {},
@@ -208,7 +208,7 @@ class Register extends Component {
           });
         }
 
-        if (parseInt(this.state.party.partySize) + party5Size <= 15) {
+        if (parseInt(this.state.party.partySize) + party5Size <= 10) {
           this.setState({
             ...this.state,
             errors: {},
@@ -227,7 +227,7 @@ class Register extends Component {
             }, 0);
           });
         }
-        if (parseInt(this.state.party.partySize) + party6Size <= 15) {
+        if (parseInt(this.state.party.partySize) + party6Size <= 10) {
           this.setState({
             ...this.state,
             errors: {},
@@ -280,7 +280,7 @@ class Register extends Component {
       });
     }
 
-    let party1SizeDiff = 15 - party1Size;
+    let party1SizeDiff = 10 - party1Size;
 
     let party2 = parties.filter((party) => {
       return party.partyTime === "12:15pm - 01:15pm";
@@ -300,7 +300,7 @@ class Register extends Component {
       });
     }
 
-    let party2SizeDiff = 15 - party2Size;
+    let party2SizeDiff = 10 - party2Size;
 
     let party3 = parties.filter((party) => {
       return party.partyTime === "01:30pm - 02:30pm";
@@ -320,7 +320,7 @@ class Register extends Component {
       });
     }
 
-    let party3SizeDiff = 15 - party3Size;
+    let party3SizeDiff = 10 - party3Size;
 
     let party4 = parties.filter((party) => {
       return party.partyTime === "02:45pm - 03:45pm";
@@ -340,7 +340,7 @@ class Register extends Component {
       });
     }
 
-    let party4SizeDiff = 15 - party4Size;
+    let party4SizeDiff = 10 - party4Size;
 
     let party5 = parties.filter((party) => {
       return party.partyTime === "04:00pm - 05:00pm";
@@ -360,7 +360,7 @@ class Register extends Component {
       });
     }
 
-    let party5SizeDiff = 15 - party5Size;
+    let party5SizeDiff = 10 - party5Size;
 
     let party6 = parties.filter((party) => {
       return party.partyTime === "05:15pm - 06:15pm";
@@ -380,7 +380,7 @@ class Register extends Component {
       });
     }
 
-    let party6SizeDiff = 15 - party6Size;
+    let party6SizeDiff = 10 - party6Size;
 
     return (
       <div>
@@ -418,7 +418,7 @@ class Register extends Component {
                 <br />
                 Please fill out the form below to reserve your time frame.
                 <br />
-                Each time frame is limited to 15 people per hour.
+                Each time frame is limited to 10 people per hour.
               </p>
 
               <p
@@ -432,7 +432,7 @@ class Register extends Component {
                 <br />
                 Favor de completar el siguiente formulario para reservar su período de tiempo.
                 <br />
-                Cada período de tiempo está limitado a 15 personas por hora.
+                Cada período de tiempo está limitado a 10 personas por hora.
               </p>
             </Col>
           </Col>
