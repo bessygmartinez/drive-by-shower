@@ -116,17 +116,17 @@ router.post("/register", (req, res) => {
                           }, 0);
 
                           if (
-                            (parseInt(req.body.partySize) + parseInt(total11) > 15 &&
+                            (parseInt(req.body.partySize) + parseInt(total11) > 10 &&
                               req.body.partyTime === "11:00am - 12:00pm") ||
-                            (parseInt(req.body.partySize) + parseInt(total12) > 15 &&
+                            (parseInt(req.body.partySize) + parseInt(total12) > 10 &&
                               req.body.partyTime === "12:15pm - 01:15pm") ||
-                            (parseInt(req.body.partySize) + parseInt(total13) > 15 &&
+                            (parseInt(req.body.partySize) + parseInt(total13) > 10 &&
                               req.body.partyTime === "01:30pm - 02:30pm") ||
-                            (parseInt(req.body.partySize) + parseInt(total14) > 15 &&
+                            (parseInt(req.body.partySize) + parseInt(total14) > 10 &&
                               req.body.partyTime === "02:45pm - 03:45pm") ||
-                            (parseInt(req.body.partySize) + parseInt(total15) > 15 &&
+                            (parseInt(req.body.partySize) + parseInt(total15) > 10 &&
                               req.body.partyTime === "04:00pm - 05:00pm") ||
-                            (parseInt(req.body.partySize) + parseInt(total16) > 15 &&
+                            (parseInt(req.body.partySize) + parseInt(total16) > 10 &&
                               req.body.partyTime === "05:15pm - 06:15pm")
                           ) {
                             return res.status(400).json({
